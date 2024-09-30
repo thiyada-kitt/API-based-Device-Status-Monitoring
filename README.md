@@ -69,6 +69,7 @@ run client -> npm start
 check fastapi -> http://localhost:8000/docs
 
 check websocket -> ws://localhost:8000/ws/monitor
+
 pip install speedtest-cli
 
 >> 65090500416-thiyada
