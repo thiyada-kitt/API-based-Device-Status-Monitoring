@@ -38,18 +38,11 @@ server: ส่งข้อมูลแสดงไปยัง client
 
 | Method     | Endpoint            | Description                            |
 |------------|---------------------|----------------------------------------|
-| GET        | /servers            | ดึงข้อมูลสถานะของเครื่องทั้งหมด       |
-| GET        | /servers/{id}       | ดึงข้อมูลสถานะของเครื่องที่ระบุ ID    |
-| PUT        | /servers/{id}/status| อัปเดตสถานะของเครื่องที่ระบุ ID       |
-| WebSocket  | /ws/monitor         | ส่งสถานะแบบเรียลไทม์                  |
+| GET        | /servers/{id}       | ดึงข้อมูลสถานะของเครื่องที่ระบุ ID             |
+| PUT        | /servers/{id}/status| อัปเดตสถานะของเครื่องที่ระบุ ID               |
+| WebSocket  | /ws/monitor         | ส่งสถานะแบบเรียลไทม์                      |
 
 `constraints: ไม่มีการใช้ OAuth 2.0 หรือ JWT ยืนยันตัวตนของ client เมื่อเข้าถึง API, ไม่มีการจัดเก็บข้อมูลลงdb`
-
-**การจัดการ**
-- 200 OK: แสดงผลได้ปกติ
-- 400 Bad Request: หาก client ส่ง request ผิด
-- 404 Not Found: หากไม่พบเซิร์ฟเวอร์
-- 500 Internal Server Error: หากเซิร์ฟเวอร์มีปัญหา
 
 ----
 
@@ -60,6 +53,7 @@ install server -> pip install fastapi[all] psutil uvicorn
 
 run server -> uvicorn main:app --reload
               uvicorn app.main:app --reload
+              uvicorn app.main:app --host <TARGET_SERVER_IP> --port 8000 #config
 
 install client -> npm install
 
