@@ -1,115 +1,16 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
 .App {
   text-align: center;
   font-family: 'Poppins', sans-serif;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-header {
-  background-color: #6e34ff;
-  border-radius: 10px;
-  top: 0;
-  padding: 20px;
-  color: white;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-  margin-top: auto;
-  padding: 0.1px;
-  text-align: center;
-  z-index: 1000;
-  position: fixed;
-  left: 0;
-  right: 0;
-}
-
-.controls {
-  margin: 20px;
-}
-
-button {
-  margin: 10px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);;
-}
-
-.dashboard {
-  margin: 20px;
-  padding: 20px;
-  border: 1px solid #ccc;
-}
-
-footer {
-  margin-top: auto;
-  background-color: #552cd041;
-  padding: 0.1px;
-  text-align: center;
-  border-radius: 10px;
-  z-index: 1000;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-html, body {
-  height: 100%;
-  margin: 0;
-}
-
-@keyframes blink {
-  0% { color: rgb(255, 71, 71); }
-  50% { color: rgb(167, 153, 153); }
-  100% { color: rgb(255, 59, 59); }
-}
-
-@keyframes worm {
-  0% {
-      transform: translateX(0);
-  }
-  25% {
-      transform: translateX(20px);
-  }
-  50% {
-      transform: translateX(0);
-  }
-  75% {
-      transform: translateX(-20px);
-  }
-  100% {
-      transform: translateX(0);
-  }
-}
-
-.loading {
-  animation: blink 1s infinite, worm 1s infinite;
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
-
-/* App.css */
-.App {
-  text-align: center;
 }
 
 header {
   background-color: #282c34;
-  padding: 20px;
+  padding: 9px;
   color: white;
   background-color: #6e34ff;
-  border-radius: 10px;
+  border-radius: 15px;
   top: 0;
   padding: 20px;
   color: white;
@@ -127,7 +28,7 @@ footer {
   background-color: #552cd041;
   padding: 0.1px;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 15px;
   z-index: 1000;
   bottom: 0;
   left: 0;

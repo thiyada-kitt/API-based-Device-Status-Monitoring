@@ -22,11 +22,10 @@ server: ส่งข้อมูลแสดงไปยัง client
 - Disk Usage
 - Network Usage
 - Disk I/O
-- Internet Speed
 
 **เพิ่มเติม:**
 - มีการ reconnect เมื่อ WebSocket ขาดหายในทุก ๆ 5 วินาที
-- ปุ่ม Stop สำหรับหยุดการดึงข้อมูล 
+- ปุ่ม Stop สำหรับหยุดการดึงข้อมูล
 
 ----
 
@@ -46,7 +45,7 @@ server: ส่งข้อมูลแสดงไปยัง client
 
 `constraints: ไม่มีการใช้ OAuth 2.0 หรือ JWT ยืนยันตัวตนของ client เมื่อเข้าถึง API, ไม่มีการจัดเก็บข้อมูลลงdb`
 
-**การจัดการข้อผิดพลาด**
+**การจัดการ**
 - 200 OK: แสดงผลได้ปกติ
 - 400 Bad Request: หาก client ส่ง request ผิด
 - 404 Not Found: หากไม่พบเซิร์ฟเวอร์
@@ -69,6 +68,5 @@ run client -> npm start
 check fastapi -> http://localhost:8000/docs
 
 check websocket -> ws://localhost:8000/ws/monitor
-pip install speedtest-cli
 
 >> 65090500416-thiyada

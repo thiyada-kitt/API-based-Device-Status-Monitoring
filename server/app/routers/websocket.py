@@ -1,4 +1,3 @@
-# server/app/routers/websocket.py
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect
 import psutil
 import json
@@ -8,7 +7,6 @@ import datetime
 
 router = APIRouter()
 
-# สร้างผู้เชื่อมต่อ WebSocket
 active_connections: dict[int, WebSocket] = {}
 
 @router.websocket("/ws/monitor")
@@ -19,7 +17,6 @@ async def monitor(websocket: WebSocket):
 
     try:
         while True:
-            # ดึงข้อมูลสถานะของเซิร์ฟเวอร์
             status = {
                 "status": {
                     "online": True,
@@ -56,7 +53,6 @@ async def monitor(websocket: WebSocket):
                     "upload_mbps": speedtest.Speedtest().upload() / 1_000_000,
                 }
             }
-            # ส่งข้อมูลไปยัง client
             await websocket.send_text(json.dumps(status))
     except WebSocketDisconnect:
         del active_connections[connection_id]

@@ -1,17 +1,15 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { startMonitoring, stopMonitoring } from './websocket'; // นำเข้าฟังก์ชันจาก websocket.js
+import { startMonitoring, stopMonitoring } from './websocket';
 
 const Dashboard = () => {
   const [status, setStatus] = useState({});
   const [isMonitoring, setIsMonitoring] = useState(false);
 
-  // ฟังก์ชันสำหรับเริ่ม monitoring
   const start = useCallback(() => {
     startMonitoring(setStatus);
     setIsMonitoring(true);
   }, []);
 
-  // ฟังก์ชันสำหรับหยุด monitoring
   const stop = useCallback(() => {
     stopMonitoring();
     setIsMonitoring(false);
@@ -19,11 +17,10 @@ const Dashboard = () => {
   }, []);
 
   useEffect(() => {
-    // เริ่ม monitoring เมื่อติดตั้ง component
     start();
 
     return () => {
-      stop(); // หยุด monitoring เมื่อ component ถูก unmounted
+      stop();
     };
   }, [start, stop]);
 
@@ -32,7 +29,7 @@ const Dashboard = () => {
       {status ? (
         <div style={{ textAlign: 'center' }}>
           <h1>
-            Status:  
+            Status:
             <span style={{ color: status.status?.online ? 'green' : 'red' }}>
               {status.status?.online ? ' Online' : ' Offline'}
            </span>
@@ -52,9 +49,9 @@ const Dashboard = () => {
           <p>Read Count: {status.disk_io?.read_count ?? 'N/A'}</p>
           <p>Write Count: {status.disk_io?.write_count ?? 'N/A'}</p>
 
-          <h2>Internet Speed:</h2>
+          {/* <h2>Internet Speed:</h2>
           <p>Download Speed: {status.internet?.speed?.download_mbps ?? 'N/A'} Mbps</p>
-          <p>Upload Speed: {status.internet?.speed?.upload_mbps ?? 'N/A'} Mbps</p>
+          <p>Upload Speed: {status.internet?.speed?.upload_mbps ?? 'N/A'} Mbps</p> */}
         </div>
       ) : null}
       <button onClick={isMonitoring ? stop : start}

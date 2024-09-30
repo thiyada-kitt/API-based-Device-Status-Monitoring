@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useState } from 'react';
 import './App.css';
 import Dashboard from './Dashboard';
@@ -26,7 +25,7 @@ function App() {
         stopMonitoring={stopMonitoring} 
       />
       <footer>
-        <p>© 2024 HWAPI. All rights reserved.</p>
+        <p>© 2024 HWAPI. No all rights reserved.</p>
       </footer>
     </div>
   );

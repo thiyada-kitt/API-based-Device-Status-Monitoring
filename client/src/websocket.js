@@ -1,4 +1,3 @@
-// src/websocket.js
 let websocket = null;
 
 export const startMonitoring = (setStatus) => {
@@ -11,7 +10,7 @@ export const startMonitoring = (setStatus) => {
   websocket.onmessage = (event) => {
     const status = JSON.parse(event.data);
     console.log(status);
-    setStatus(status); // อัปเดตสถานะ
+    setStatus(status);
   };
 
   websocket.onclose = () => {
