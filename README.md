@@ -1,4 +1,4 @@
-### API-based Device Status Monitoring
+### API-based Device Status Monitoring - ยังขาด api endpoint ไม่ได้ config 2 เครื่อง
 ----------------------------
 
 client: ดึงข้อมูลเพื่อตรวจสอบสถานะของเครื่อง server
