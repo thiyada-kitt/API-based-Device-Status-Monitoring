@@ -17,12 +17,16 @@ const Dashboard = () => {
   }, []);
 
   useEffect(() => {
-    start();
+    if (isMonitoring) {
+      start();
+    } else {
+      stop();
+    }
 
     return () => {
       stop();
     };
-  }, [start, stop]);
+  }, [isMonitoring, start, stop]);
 
   return (
     <div>
@@ -32,9 +36,9 @@ const Dashboard = () => {
             Status:
             <span style={{ color: status.status?.online ? 'green' : 'red' }}>
               {status.status?.online ? ' Online' : ' Offline'}
-           </span>
+            </span>
           </h1>
-          <p>Timestamp: {status.status?.timestamp}</p>
+          <p>Timestamp: {status.status?.timestamp ?? '-'}</p>
 
           <h2>System Info:</h2>
           <p>CPU Usage: {status.system?.cpu?.usage ?? 'N/A'}%</p>
@@ -48,25 +52,21 @@ const Dashboard = () => {
           <h2>Disk I/O:</h2>
           <p>Read Count: {status.disk_io?.read_count ?? 'N/A'}</p>
           <p>Write Count: {status.disk_io?.write_count ?? 'N/A'}</p>
-
-          {/* <h2>Internet Speed:</h2>
-          <p>Download Speed: {status.internet?.speed?.download_mbps ?? 'N/A'} Mbps</p>
-          <p>Upload Speed: {status.internet?.speed?.upload_mbps ?? 'N/A'} Mbps</p> */}
         </div>
       ) : null}
       <button onClick={isMonitoring ? stop : start}
-       style={{ 
-        backgroundColor: isMonitoring ? 'red' : 'green', 
-        color: 'white', 
-        padding: '10px 20px',
-        border: 'none',
-        borderRadius: '5px',
-        cursor: 'pointer'
-      }}>
+        style={{ 
+          backgroundColor: isMonitoring ? 'red' : 'green', 
+          color: 'white', 
+          padding: '10px 20px',
+          border: 'none',
+          borderRadius: '5px',
+          cursor: 'pointer'
+        }}>
         {isMonitoring ? 'Stop' : 'Start'}
       </button>
     </div>
   );
 };
 
-export default Dashboard;
+export default Dashboard; 

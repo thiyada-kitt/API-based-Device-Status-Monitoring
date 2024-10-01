@@ -1,8 +1,6 @@
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect
 import psutil
 import json
-import speedtest
-import asyncio
 import datetime
 
 router = APIRouter()
@@ -20,7 +18,7 @@ async def monitor(websocket: WebSocket):
             status = {
                 "status": {
                     "online": True,
-                    "timestamp": str(datetime.datetime.now()),
+                    "timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 },
                 "system": {
                     "cpu": {
@@ -47,10 +45,6 @@ async def monitor(websocket: WebSocket):
                     "write_count": psutil.disk_io_counters().write_count,
                     "read_bytes": f"{psutil.disk_io_counters().read_bytes / (1024 ** 3):.2f} GB",
                     "write_bytes": f"{psutil.disk_io_counters().write_bytes / (1024 ** 3):.2f} GB"
-                },
-                "internet_speed": {
-                    "download_mbps": speedtest.Speedtest().download() / 1_000_000,
-                    "upload_mbps": speedtest.Speedtest().upload() / 1_000_000,
                 }
             }
             await websocket.send_text(json.dumps(status))

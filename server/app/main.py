@@ -8,4 +8,4 @@ app.include_router(websocket.router)
 
 @app.get("/")
 async def root():
-    return {"message": "Welcome to the HWAPI Server!"}
+    return {"message": "Welcome to the Server!"}

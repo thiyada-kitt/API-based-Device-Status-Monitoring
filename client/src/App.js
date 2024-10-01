@@ -5,7 +5,7 @@ import Dashboard from './Dashboard';
 function App() {
   const [isMonitoring, setIsMonitoring] = useState(false);
 
-  const startMonitoring = () => {
+  const startMonitoring = (setStatus) => {
     setIsMonitoring(true);
   };
 
@@ -17,12 +17,12 @@ function App() {
     <div className="App">
       <header>
         <h1>API-based Device Status Monitoring</h1>
-        <p>ระบบตรวจสอบสถานะเซิร์ฟเวอร์</p>
+        <p>ระบบตรวจสอบสถานะ</p>
       </header>
       <Dashboard 
-        isMonitoring={isMonitoring} 
-        startMonitoring={startMonitoring} 
-        stopMonitoring={stopMonitoring} 
+        isMonitoring={isMonitoring}
+        startMonitoring={startMonitoring}
+        stopMonitoring={stopMonitoring}
       />
       <footer>
         <p>© 2024 HWAPI. No all rights reserved.</p>
