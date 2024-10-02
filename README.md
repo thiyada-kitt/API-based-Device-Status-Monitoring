@@ -1,9 +1,9 @@
-### API-based Device Status Monitoring - ยังขาด api endpoint ไม่ได้ config 2 เครื่อง
+### API-based Device Status Monitoring - [ยังขาด api endpoint ไม่ได้ config 2 เครื่อง]
 ----------------------------
 
-client: ดึงข้อมูลเพื่อตรวจสอบสถานะของเครื่อง server
+**client**: ดึงข้อมูลเพื่อตรวจสอบสถานะของเครื่อง server
 
-server: ส่งข้อมูลแสดงไปยัง client
+**server**: ส่งข้อมูลแสดงไปยัง client
 
 ----
 
@@ -13,7 +13,7 @@ server: ส่งข้อมูลแสดงไปยัง client
 - จัดการระบบได้มีประสิทธิภาพ
 
 **ประเภทของเซิร์ฟเวอร์:**
-- Web Socket [สำหรับการอัปเดตข้อมูล]
+- WebSocket [สำหรับการอัปเดตข้อมูลต่างๆ]
 
 **ทรัพยากรที่ต้องการตรวจสอบ:**
 - Online/Offline
@@ -43,7 +43,7 @@ server: ส่งข้อมูลแสดงไปยัง client
 | PUT        | /servers/{id}/status| อัปเดตสถานะของเครื่องที่ระบุ ID               |
 | WebSocket  | /ws/monitor         | ส่งสถานะแบบเรียลไทม์                      |
 
-`constraints: ไม่มีการใช้ OAuth 2.0 หรือ JWT ยืนยันตัวตนของ client เมื่อเข้าถึง API, ไม่มีการจัดเก็บข้อมูลลงdb`
+`Constraints: ไม่มีการใช้ OAuth 2.0 หรือ JWT สำหรับการยืนยันตัวตนของ client เมื่อเข้าถึง API, ไม่มีการจัดเก็บข้อมูลลงฐานข้อมูล`
 
 ----
 
@@ -63,5 +63,8 @@ run client -> npm start
 check fastapi -> http://localhost:8000/docs
 
 check websocket -> ws://localhost:8000/ws/monitor
+```
 
+**สมาชิกผู้จัดทำ**
 >> 65090500416-thiyada
+>> 65090500404-kunakron
