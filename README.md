@@ -66,5 +66,5 @@ check websocket -> ws://localhost:8000/ws/monitor
 ```
 
 **สมาชิกผู้จัดทำ**
->> 65090500416-thiyada
->> 65090500404-kunakron
+> - 65090500416 Thiyada
+> - 65090500404 Kunakron
